@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "210251171623",
+    "firebase_url": "https://covidph-4f28b.firebaseio.com",
+    "project_id": "covidph-4f28b",
+    "storage_bucket": "covidph-4f28b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210251171623:android:b39ae161e71a566b1f4b02",
+        "android_client_info": {
+          "package_name": "com.skilla.covidph"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210251171623-uo48btacg7u5rav48jvqnkme3nska1is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skilla.covidph",
+            "certificate_hash": "a1f33d77220a16f5cc01de650c0dc712b0d64c18"
+          }
+        },
+        {
+          "client_id": "210251171623-n2vcp1st83vt3r80e6o3ga2ngsled3fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoUd4NJjAZXvzIGrpieaSRr3s7f0ngKVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210251171623-n2vcp1st83vt3r80e6o3ga2ngsled3fq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
