@@ -1,4 +1,5 @@
-import 'package:covidph/ui/views/dashboard_view.dart';
+import 'package:covidph/ui/views/splash_view.dart';
+import 'package:device_id/device_id.dart';
 import 'package:flutter/material.dart';
 import 'package:covidph/services/navigation_service.dart';
 import 'package:covidph/services/dialog_service.dart';
@@ -14,11 +15,20 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  String deviceID;
+
+  void getDeviceID() async {
+    String deviceId = await DeviceId.getID;
+    deviceID = 'Device ID is $deviceId';
+    print('Device ID is $deviceId');
+  }
+
   @override
   Widget build(BuildContext context) {
+    // getDeviceID();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Compound',
+      title: 'Covid PH',
       builder: (context, child) => Navigator(
         key: locator<DialogService>().dialogNavigationKey,
         onGenerateRoute: (settings) => MaterialPageRoute(
@@ -32,7 +42,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Roboto',
             ),
       ),
-      home: DashboardView(),
+      home: SplashView(),
       onGenerateRoute: generateRoute,
     );
   }

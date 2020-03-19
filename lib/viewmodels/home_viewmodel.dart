@@ -9,18 +9,19 @@ class HomeViewModel extends BaseModel {
   List<Stat> _stats;
   List<Stat> get stat => _stats;
 
-  void getStat() {
+  void getStat() async {
     setBusy(true);
 
-    _firestoreService.getStats().listen((statData) {
-      List<Stat> updatedStat = statData;
+    // _firestoreService.getStats().listen((statData) {
+    //   List<Stat> updatedStat = statData;
 
-      if (updatedStat != null && updatedStat.length > 0) {
-        _stats = updatedStat;
-        notifyListeners();
-      }
+    //   if (updatedStat != null && updatedStat.length > 0) {
+    //     _stats = updatedStat;
+    //     notifyListeners();
+    //   }
 
-      setBusy(false);
-    });
+    _stats = await _firestoreService.getAppStats();
+
+    setBusy(false);
   }
 }

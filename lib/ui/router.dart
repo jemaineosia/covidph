@@ -1,3 +1,4 @@
+import 'package:covidph/ui/views/dashboard_view.dart';
 import 'package:covidph/ui/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:covidph/constants/route_names.dart';
@@ -20,6 +21,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: HomeView(),
+      );
+    case DashboardViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: DashboardView(),
       );
     default:
       return MaterialPageRoute(

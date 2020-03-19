@@ -46,7 +46,7 @@ class _CasesViewState extends State<CasesView> {
         children: [
           MenuItem(
             child: Icon(MdiIcons.alertDecagram, color: Colors.black),
-            title: "COVID Cases",
+            title: "Case Overview",
             titleColor: Colors.white,
             subtitle: "(Confirmed, PUIs, PUMs, Recovered, Deaths)",
             subTitleColor: Colors.white,

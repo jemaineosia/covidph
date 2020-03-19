@@ -35,9 +35,10 @@ class CaseStatusCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
+                softWrap: false,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: SizeConfig.safeBlockVertical * 2.5,
+                  fontSize: SizeConfig.blockSizeVertical * 2,
                   fontWeight: FontWeight.w800,
                   color: Colors.black,
                 ),
@@ -64,6 +65,7 @@ class CaseStatusCard extends StatelessWidget {
               verticalSpaceTiny,
               Text(
                 subtitle,
+                softWrap: false,
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: SizeConfig.safeBlockVertical * 2),

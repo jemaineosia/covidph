@@ -8,6 +8,7 @@ import 'package:covidph/viewmodels/dashboard_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider_architecture/provider_architecture.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key key}) : super(key: key);
@@ -25,7 +26,7 @@ class _DashboardViewState extends State<DashboardView> {
       builder: (context, model, child) => DefaultTabController(
         length: 3,
         child: Scaffold(
-          // drawer: _buildDrawer(),
+          drawer: _buildDrawer(),
           appBar: _buildAppBar(),
           body: _buildTabBarView(),
           bottomNavigationBar: _buildBottomNavigationBar(),
@@ -80,6 +81,14 @@ class _DashboardViewState extends State<DashboardView> {
     );
   }
 
+  _launchURL({String url}) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   Widget _buildTabBarView() {
     return TabBarView(
       children: [
@@ -121,16 +130,21 @@ class _DashboardViewState extends State<DashboardView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(
-                  'assets/images/reported_cases_icon.png',
-                  height: SizeConfig.safeBlockVertical * 15,
+                verticalSpaceMedium,
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/reported_cases_icon.png',
+                    height: SizeConfig.safeBlockVertical * 25,
+                  ),
                 ),
                 verticalSpaceSmall,
-                Text(
-                  'CoViD PH',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: SizeConfig.safeBlockVertical * 3,
+                Expanded(
+                  child: Text(
+                    'Covid PH',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: SizeConfig.safeBlockVertical * 3,
+                    ),
                   ),
                 )
               ],
@@ -140,58 +154,94 @@ class _DashboardViewState extends State<DashboardView> {
             color: Colors.white,
           ),
         ),
-        // ListTile(
-        //   leading: Icon(
-        //     Icons.notifications,
-        //     color: Colors.black,
-        //   ),
-        //   title: Text(
-        //     'Notifications',
-        //     style: TextStyle(
-        //       fontWeight: FontWeight.w400,
-        //     ),
-        //   ),
-        //   onTap: () {},
-        // ),
         ListTile(
-          leading: Icon(
-            MdiIcons.share,
-            color: Colors.black,
-          ),
           title: Text(
-            'Share App',
+            'Important Links',
+            textAlign: TextAlign.center,
             style: TextStyle(
-              fontWeight: FontWeight.w400,
+              fontSize: SizeConfig.safeBlockVertical * 2,
+              fontWeight: FontWeight.w600,
             ),
           ),
           onTap: () {},
         ),
         ListTile(
           leading: Icon(
-            Icons.star,
+            MdiIcons.hospitalBoxOutline,
             color: Colors.black,
           ),
           title: Text(
-            'Rate Us!',
+            'DOH Website',
             style: TextStyle(
               fontWeight: FontWeight.w400,
             ),
           ),
-          onTap: () {},
+          onTap: () {
+            _launchURL(url: 'https://www.doh.gov.ph');
+          },
         ),
         ListTile(
           leading: Icon(
-            MdiIcons.checkDecagram,
+            MdiIcons.earth,
             color: Colors.black,
           ),
           title: Text(
-            'Privacy Policy',
+            'World Health Organization',
             style: TextStyle(
               fontWeight: FontWeight.w400,
             ),
           ),
-          onTap: () {},
-        )
+          onTap: () {
+            _launchURL(url: 'https://www.who.int');
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            MdiIcons.crosshairsGps,
+            color: Colors.black,
+          ),
+          title: Text(
+            'Philippines NCOV Tracker',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          onTap: () {
+            _launchURL(url: 'https://ncovtracker.doh.gov.ph');
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            MdiIcons.shieldLinkVariantOutline,
+            color: Colors.black,
+          ),
+          title: Text(
+            'FightCovid.app',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          onTap: () {
+            _launchURL(url: 'https://fightcovid.app');
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            MdiIcons.radar,
+            color: Colors.black,
+          ),
+          title: Text(
+            'Global Cases Map',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          onTap: () {
+            _launchURL(
+                url:
+                    'https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6');
+          },
+        ),
       ]),
     );
   }

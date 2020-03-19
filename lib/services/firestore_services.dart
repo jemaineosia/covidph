@@ -41,6 +41,23 @@ class FirestoreService {
     return _statsController.stream;
   }
 
+  Future getAppStats() async {
+    try {
+      var statsDocumentSnapshot = await _statsCollectionService.getDocuments();
+
+      print(statsDocumentSnapshot.documents.length);
+
+      if (statsDocumentSnapshot.documents.isNotEmpty) {
+        return statsDocumentSnapshot.documents
+            .map((snapshot) => Stat.fromData(snapshot.data))
+            .where((mappedItem) => mappedItem.confirmedCases != null)
+            .toList();
+      }
+    } catch (e) {
+      print(e.message);
+    }
+  }
+
   Future getFacilities({@required String status}) async {
     try {
       var facilitiesDocumentSnapshot = await _facilitiesCollectionService

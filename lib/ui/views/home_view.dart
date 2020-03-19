@@ -1,6 +1,7 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:covidph/ui/shared/sizing_config.dart';
 import 'package:covidph/ui/shared/ui_helpers.dart';
+import 'package:covidph/ui/widgets/admob_widget.dart';
 import 'package:covidph/ui/widgets/news_widget.dart';
 import 'package:covidph/ui/widgets/case_status_card.dart';
 import 'package:covidph/ui/widgets/case_status_card_small.dart';
@@ -18,8 +19,8 @@ class HomeView extends StatelessWidget {
       viewModel: HomeViewModel(),
       onModelReady: (model) => model.getStat(),
       builder: (context, model, child) {
-        var lastUpdatedText = DateFormat("MMMM d, y H:m a")
-            .format(model.stat[0].lastUpdated.toDate());
+        // var lastUpdatedText = DateFormat("MMMM d, y H:m a")
+        //     .format(model.stat[0].lastUpdated.toDate());
 
         return Scaffold(
           backgroundColor: Color(ColorUtils.hexToInt('f1f1f1')),
@@ -34,7 +35,9 @@ class HomeView extends StatelessWidget {
                           height: SizeConfig.safeBlockVertical * 3,
                           color: Colors.red,
                           child: Text(
-                            'COVID-19 Cases as of $lastUpdatedText',
+                            'COVID-19 Cases as of ' +
+                                DateFormat("MMMM d, y H:m a")
+                                    .format(model.stat[0].lastUpdated.toDate()),
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: SizeConfig.safeBlockVertical * 2),
@@ -43,6 +46,8 @@ class HomeView extends StatelessWidget {
                       _buildMainCases(model: model),
                       _buildSubCases(model: model),
                       _buildLatestCasesList(),
+                      AdmobWidget(),
+                      // AdmobWidget(),
                     ],
                   ),
                 ),
@@ -85,11 +90,11 @@ class HomeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             CaseStatusCardSmall(
-              title: 'MONITORING',
+              title: 'MONITORED',
               subtitle: formatter.format(vm.pum),
             ),
             CaseStatusCardSmall(
-              title: 'INVESTIGATION',
+              title: 'INVESTIGATED',
               subtitle: formatter.format(vm.pui),
             ),
             CaseStatusCardSmall(
