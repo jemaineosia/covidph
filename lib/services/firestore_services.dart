@@ -23,9 +23,6 @@ class FirestoreService {
   final StreamController<List<Stat>> _statsController =
       StreamController<List<Stat>>.broadcast();
 
-  final StreamController<List<Case>> _casesController =
-      StreamController<List<Case>>.broadcast();
-
   Stream getStats() {
     _statsCollectionService.snapshots().listen((statsSnapshot) {
       if (statsSnapshot.documents.isNotEmpty) {

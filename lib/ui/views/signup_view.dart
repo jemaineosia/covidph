@@ -28,7 +28,6 @@ class SignUpView extends StatelessWidget {
                 ),
               ),
               verticalSpaceLarge,
-              // TODO: Add additional user data here to save (episode 2)
               InputField(
                 placeholder: 'Email',
                 controller: emailController,
@@ -47,9 +46,7 @@ class SignUpView extends StatelessWidget {
                 children: [
                   BusyButton(
                     title: 'Sign Up',
-                    onPressed: () {
-                      // TODO: Perform firebase login here
-                    },
+                    onPressed: () {},
                   )
                 ],
               )

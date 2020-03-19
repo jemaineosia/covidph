@@ -20,7 +20,6 @@ class _AdmobWidgetState extends State<AdmobWidget> {
     nonPersonalizedAds: true,
   );
 
-  BannerAd _bannerAd;
   InterstitialAd _interstitialAd;
 
   BannerAd createBannerAdd() {
@@ -82,11 +81,11 @@ class _AdmobWidgetState extends State<AdmobWidget> {
 
       int mins = timeDifference.inMinutes;
 
-      if (mins > 30) {
+      if (mins > 10) {
         int timestamp = DateTime.now().millisecondsSinceEpoch;
         prefs.setInt('dateTimeLastAdShown', timestamp);
 
-        FirebaseAdMob.instance.initialize(appId: getAppId());
+        await FirebaseAdMob.instance.initialize(appId: getAppId());
         _interstitialAd = createInterstitialAd()
           ..load()
           ..show();
@@ -95,7 +94,7 @@ class _AdmobWidgetState extends State<AdmobWidget> {
       int timestamp = DateTime.now().millisecondsSinceEpoch;
       prefs.setInt('dateTimeLastAdShown', timestamp);
 
-      FirebaseAdMob.instance.initialize(appId: getAppId());
+      await FirebaseAdMob.instance.initialize(appId: getAppId());
       _interstitialAd = createInterstitialAd()
         ..load()
         ..show();

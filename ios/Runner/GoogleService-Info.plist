@@ -34,5 +34,7 @@
 	<string>1:210251171623:ios:c632ea04d18cdd591f4b02</string>
 	<key>DATABASE_URL</key>
 	<string>https://covidph-4f28b.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-8977853393084950~9062146110</string>
 </dict>
 </plist>

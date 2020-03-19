@@ -38,10 +38,18 @@
             {
               "client_id": "210251171623-n2vcp1st83vt3r80e6o3ga2ngsled3fq.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "210251171623-mv09f8jtmthttf63duklijjml2ri4rmd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.skilla.covidph"
+              }
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-8977853393084950~2688309459"
     }
   ],
   "configuration_version": "1"

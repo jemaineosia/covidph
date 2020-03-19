@@ -1,6 +1,5 @@
 import 'package:covidph/ui/views/cases_confirmed_view.dart';
 import 'package:covidph/ui/views/cases_covid_view.dart';
-import 'package:covidph/ui/views/cases_pui_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boom_menu/flutter_boom_menu.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -18,7 +17,7 @@ class _CasesViewState extends State<CasesView> {
   List<Widget> _pages = [
     CasesCovidView(),
     CasesConfirmedView(),
-    CasesPUIView(),
+    // CasesPUIView(),
   ];
 
   void selectedPage(int index) {
@@ -62,15 +61,15 @@ class _CasesViewState extends State<CasesView> {
             backgroundColor: Colors.green,
             onTap: () => selectedPage(1),
           ),
-          MenuItem(
-            child: Icon(MdiIcons.accountSupervisorCircle, color: Colors.black),
-            title: "Person Under Investigation",
-            titleColor: Colors.white,
-            subtitle: "by Health Facilities",
-            subTitleColor: Colors.white,
-            backgroundColor: Colors.blue,
-            onTap: () => selectedPage(2),
-          ),
+          // MenuItem(
+          //   child: Icon(MdiIcons.accountSupervisorCircle, color: Colors.black),
+          //   title: "Person Under Investigation",
+          //   titleColor: Colors.white,
+          //   subtitle: "by Health Facilities",
+          //   subTitleColor: Colors.white,
+          //   backgroundColor: Colors.blue,
+          //   onTap: () => selectedPage(2),
+          // ),
         ],
       ),
     );

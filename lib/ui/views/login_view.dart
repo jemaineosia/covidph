@@ -44,18 +44,14 @@ class LoginView extends StatelessWidget {
                   children: [
                     BusyButton(
                       title: 'Login',
-                      onPressed: () {
-                        // TODO: Perform firebase login here
-                      },
+                      onPressed: () {},
                     )
                   ],
                 ),
                 verticalSpaceMedium,
                 TextLink(
                   'Create an Account if you\'re new.',
-                  onPressed: () {
-                    // TODO: Handle navigation
-                  },
+                  onPressed: () {},
                 )
               ],
             ),

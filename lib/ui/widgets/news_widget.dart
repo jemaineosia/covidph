@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
 import 'package:provider_architecture/provider_architecture.dart';
-import 'package:simple_moment/simple_moment.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsWidget extends StatelessWidget {
@@ -16,8 +15,6 @@ class NewsWidget extends StatelessWidget {
       viewModel: NewsViewModel(),
       onModelReady: (model) => model.getNews(),
       builder: (context, model, child) {
-        var moment = Moment.now();
-
         return model.busy
             ? Center(
                 child: SpinKitRipple(
