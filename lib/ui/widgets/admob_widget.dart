@@ -38,7 +38,9 @@ class _AdmobWidgetState extends State<AdmobWidget> {
       adUnitId: getInterstitialAdUnitId(),
       targetingInfo: targetInfo,
       listener: (MobileAdEvent event) {
-        print('Interstitial event: $event');
+        if (event == MobileAdEvent.failedToLoad) {
+          print('Interstitial event: $event');
+        }
       },
     );
   }
@@ -85,7 +87,7 @@ class _AdmobWidgetState extends State<AdmobWidget> {
         int timestamp = DateTime.now().millisecondsSinceEpoch;
         prefs.setInt('dateTimeLastAdShown', timestamp);
 
-        await FirebaseAdMob.instance.initialize(appId: getAppId());
+        FirebaseAdMob.instance.initialize(appId: getAppId());
         _interstitialAd = createInterstitialAd()
           ..load()
           ..show();
@@ -94,7 +96,7 @@ class _AdmobWidgetState extends State<AdmobWidget> {
       int timestamp = DateTime.now().millisecondsSinceEpoch;
       prefs.setInt('dateTimeLastAdShown', timestamp);
 
-      await FirebaseAdMob.instance.initialize(appId: getAppId());
+      FirebaseAdMob.instance.initialize(appId: getAppId());
       _interstitialAd = createInterstitialAd()
         ..load()
         ..show();
