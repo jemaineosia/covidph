@@ -81,7 +81,7 @@ class _AdmobWidgetState extends State<AdmobWidget> {
 
       int mins = timeDifference.inMinutes;
 
-      if (mins > 10) {
+      if (mins > 30) {
         int timestamp = DateTime.now().millisecondsSinceEpoch;
         prefs.setInt('dateTimeLastAdShown', timestamp);
 
