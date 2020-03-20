@@ -16,7 +16,14 @@ class AdmobWidget extends StatefulWidget {
 class _AdmobWidgetState extends State<AdmobWidget> {
   static final MobileAdTargetingInfo targetInfo = MobileAdTargetingInfo(
     testDevices: testDevice != null ? <String>[testDevice] : null,
-    keywords: <String>['health', 'corona'],
+    keywords: <String>[
+      'health',
+      'coronavirus',
+      'covid',
+      'vitamins',
+      'exercise',
+      'diet'
+    ],
     nonPersonalizedAds: true,
   );
 
