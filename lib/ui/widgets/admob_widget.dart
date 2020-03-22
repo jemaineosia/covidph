@@ -32,13 +32,15 @@ class _AdmobWidgetState extends State<AdmobWidget> {
   BannerAd createBannerAdd() {
     return new BannerAd(
       adUnitId: BannerAd.testAdUnitId,
-      size: AdSize.banner,
+      size: AdSize.mediumRectangle,
       targetingInfo: targetInfo,
       listener: (MobileAdEvent event) {
         print('Banner event: $event');
       },
     );
   }
+
+  
 
   InterstitialAd createInterstitialAd() {
     return InterstitialAd(

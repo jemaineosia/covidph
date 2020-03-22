@@ -39,7 +39,7 @@ class HomeView extends StatelessWidget {
                                 DateFormat("MMMM d, y H:m a")
                                     .format(model.stat[0].lastUpdated.toDate()),
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: SizeConfig.safeBlockVertical * 2),
                           )),
                       verticalSpaceSmall,
